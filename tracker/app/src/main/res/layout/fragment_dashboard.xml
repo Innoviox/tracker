@@ -25,7 +25,14 @@
         style="@style/Widget.AppCompat.Button"
         android:layout_width="154dp"
         android:layout_height="117dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="107dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="132dp"
+        android:onClick="log"
         android:text="@string/plus_button_text"
-        tools:layout_editor_absoluteX="220dp"
-        tools:layout_editor_absoluteY="107dp" />
+        app:layout_constraintBottom_toTopOf="@+id/text_dashboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
