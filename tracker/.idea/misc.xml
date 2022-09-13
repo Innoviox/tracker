@@ -10,6 +10,11 @@
         <entry key="..\:/Users/lvb41/Documents/GitHub/tracker/tracker/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.188" />
         <entry key="..\:/Users/lvb41/Documents/GitHub/tracker/tracker/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/lvb41/Documents/GitHub/tracker/tracker/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1796875" />
+        <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2605" />
+        <entry key="app/src/main/res/layout/activity_logger_view.xml" value="0.33967391304347827" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21603260869565216" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.33967391304347827" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.340625" />
       </map>
     </option>
   </component>
