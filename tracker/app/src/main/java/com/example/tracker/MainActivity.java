@@ -3,9 +3,10 @@ package com.example.tracker;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
-
+import android.widget.CalendarView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -19,8 +20,8 @@ public class MainActivity extends AppCompatActivity
      {
 
     private ActivityMainBinding binding;
-
-    FloatingActionButton mAddFab;
+    CalendarView calendar;
+    public FloatingActionButton mAddFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,36 @@ public class MainActivity extends AppCompatActivity
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        calendar = (CalendarView)
+                findViewById(R.id.calendar);
+        calendar
+                .setOnDateChangeListener(
+                        new CalendarView
+                                .OnDateChangeListener() {
+                            @Override
 
+                            // In this Listener have one method
+                            // and in this method we will
+                            // get the value of DAYS, MONTH, YEARS
+                            public void onSelectedDayChange(
+                                    @NonNull CalendarView view,
+                                    int year,
+                                    int month,
+                                    int dayOfMonth)
+                            {
+
+                                // Store the value of date with
+                                // format in String type Variable
+                                // Add 1 in month because month
+                                // index is start with 0
+                                String Date
+                                        = dayOfMonth + "-"
+                                        + (month + 1) + "-" + year;
+
+
+
+                            }
+                        });
         mAddFab = findViewById(R.id.add_fab);
         mAddFab.setOnClickListener(new View.OnClickListener() {
             @Override
