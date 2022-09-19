@@ -18,8 +18,8 @@ public interface EventDao {
     List<Event> loadAllByIds(int[] eventIds);
 
     @Insert
-    void insertAll(Event... users);
+    void insertAll(Event... events);
 
     @Delete
-    void delete(Event user);
+    void delete(Event event);
 }
