@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
 
 @Database(entities = {Event.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
-    public abstract EventDao userDao();
+    public abstract EventDao eventDao();
 
     // https://developer.android.com/codelabs/android-room-with-a-view#7
     private static volatile AppDatabase INSTANCE;
