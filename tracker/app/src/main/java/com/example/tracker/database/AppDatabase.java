@@ -14,12 +14,13 @@ import java.util.concurrent.Executors;
 
 @Database(entities = {Event.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
+
     public abstract EventDao eventDao();
 
     // https://developer.android.com/codelabs/android-room-with-a-view#7
     private static volatile AppDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
-    static final ExecutorService databaseWriteExecutor =
+    public static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     public static AppDatabase getDatabase(final Context context) {

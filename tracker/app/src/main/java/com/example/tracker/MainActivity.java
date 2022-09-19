@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
 import android.widget.CalendarView;
+
+import com.example.tracker.database.AppDatabase;
+import com.example.tracker.database.entities.Event;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -77,6 +80,11 @@ public class MainActivity extends AppCompatActivity
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        AppDatabase db = AppDatabase.getDatabase(getApplication());
+        db.databaseWriteExecutor.execute(() -> {
+            System.out.println("hello " + db.eventDao().getAll());
+        });
     }
 
 
