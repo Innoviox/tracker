@@ -19,6 +19,10 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.tracker.databinding.ActivityMainBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+
 public class MainActivity extends AppCompatActivity
      {
 
@@ -26,16 +30,18 @@ public class MainActivity extends AppCompatActivity
     CalendarView calendar;
     public FloatingActionButton mAddFab;
 
+    private String selectedDate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        selectedDate = DateTimeFormatter.ofPattern("dd-MM-yyyy").withZone(ZoneId.systemDefault()).format(Instant.now());
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        calendar = (CalendarView)
-                findViewById(R.id.calendar);
-        calendar
-                .setOnDateChangeListener(
+        calendar = (CalendarView) findViewById(R.id.calendar);
+        calendar.setOnDateChangeListener(
                         new CalendarView
                                 .OnDateChangeListener() {
                             @Override
@@ -54,12 +60,7 @@ public class MainActivity extends AppCompatActivity
                                 // format in String type Variable
                                 // Add 1 in month because month
                                 // index is start with 0
-                                String Date
-                                        = dayOfMonth + "-"
-                                        + (month + 1) + "-" + year;
-
-
-
+                                selectedDate = dayOfMonth + "-" + (month + 1) + "-" + year;
                             }
                         });
         mAddFab = findViewById(R.id.add_fab);
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,AddEvent.class);
+                intent.putExtra("selectedDate", selectedDate);
                 startActivity(intent);
             }
         });

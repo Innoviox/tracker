@@ -36,6 +36,6 @@ public class DashboardFragment extends Fragment {
     }
 
     public void log(View view) {
-        
+
     }
 }
